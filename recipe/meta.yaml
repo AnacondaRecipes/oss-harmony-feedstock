@@ -1,14 +1,13 @@
-{% set name = "openai-harmony" %}
-{% set version = "0.0.8" %}
+{% set name = "oss-harmony" %}
+{% set version = "0.0.11" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/openai_harmony-{{ version }}.tar.gz
-  sha256: 6e43f98e6c242fa2de6f8ea12eab24af63fa2ed3e89c06341fb9d92632c5cbdf
-
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/oss_harmony-{{ version }}.tar.gz
+  sha256: ccad467b71d61490df1f2204b7a064990833338615ac135536c5b3a8e2d03a15
 build:
   skip: true  # [py<310]
   number: 0
