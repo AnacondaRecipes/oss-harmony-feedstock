@@ -31,6 +31,11 @@ requirements:
     - python
     - pydantic >=2.11.7
 
+  run_constrained:
+    # Both openai-harmony and oss-harmony provide the openai_harmony python package, and cannot both be loaded
+    # into the same environment.
+    - openai-harmony <=0.0.0a0
+
 test:
   source_files:
     - tests/
