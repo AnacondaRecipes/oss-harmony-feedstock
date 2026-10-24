@@ -1,4 +1,4 @@
-About openai-harmony-feedstock
+About oss-harmony-feedstock
 ==============================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openai-harmony-feedstock/blob/main/LICENSE.txt)
