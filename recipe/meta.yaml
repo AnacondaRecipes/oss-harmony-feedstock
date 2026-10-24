@@ -51,7 +51,7 @@ test:
 
 
 about:
-  home: https://pypi.org/project/openai-harmony/
+  home: https://pypi.org/project/oss-harmony/
   summary: OpenAI's response format for its open-weight model series gpt-oss
   description: |
     The gpt-oss models were trained on the harmony response format for
@@ -70,8 +70,8 @@ about:
     - LICENSE
     - THIRDPARTY.yml
   license_family: Apache
-  doc_url: https://github.com/openai/harmony/tree/main/docs
-  dev_url: https://github.com/openai/harmony
+  doc_url: https://github.com/oss-harmony/harmony/tree/main/docs
+  dev_url: https://github.com/oss-harmony/harmony
 
 extra:
   recipe-maintainers:
