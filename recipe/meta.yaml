@@ -72,6 +72,10 @@ about:
   license_file:
     - LICENSE
     - THIRDPARTY.yml
+    # zstd-sys compiles in pre-generated bindings (src/bindings_zstd*.rs) that are BSD-3-Clause.
+    # cargo-bundle-licenses only records the crate's declared MIT/Apache-2.0, so ship the notice
+    # (crate-root LICENSE.BSD-3-Clause of zstd-sys 2.0.16+zstd.1.5.7) explicitly.
+    - licenses/LICENSE-zstd-sys-bindings.BSD-3-Clause
   license_family: Apache
   doc_url: https://github.com/oss-harmony/harmony/tree/main/docs
   dev_url: https://github.com/oss-harmony/harmony
