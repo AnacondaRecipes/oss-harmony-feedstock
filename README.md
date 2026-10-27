@@ -1,15 +1,15 @@
-About openai-harmony-feedstock
+About oss-harmony-feedstock
 ==============================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openai-harmony-feedstock/blob/main/LICENSE.txt)
 
-Home: https://pypi.org/project/openai-harmony/
+Home: https://pypi.org/project/oss-harmony/
 
 Package license: Apache-2.0
 
 Summary: OpenAI's response format for its open-weight model series gpt-oss
 
-Development: https://github.com/openai/harmony
+Development: https://github.com/oss-harmony/harmony
 
 Current build status
 ====================

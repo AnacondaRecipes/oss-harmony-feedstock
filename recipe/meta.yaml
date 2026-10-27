@@ -1,20 +1,16 @@
-{% set name = "openai-harmony" %}
-{% set version = "0.0.8" %}
+{% set name = "oss-harmony" %}
+{% set version = "0.0.11" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/openai_harmony-{{ version }}.tar.gz
-  sha256: 6e43f98e6c242fa2de6f8ea12eab24af63fa2ed3e89c06341fb9d92632c5cbdf
-
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: ccad467b71d61490df1f2204b7a064990833338615ac135536c5b3a8e2d03a15
 build:
   skip: true  # [py<310]
   number: 0
-  script: 
-    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
 
 requirements:
   build:
@@ -27,10 +23,16 @@ requirements:
     - python
     - maturin >=1.8,<2.0
     - pip
+    - zstd {{ zstd }}
 
   run:
     - python
     - pydantic >=2.11.7
+
+  run_constrained:
+    # Both openai-harmony and oss-harmony provide the openai_harmony python package, and cannot both be loaded
+    # into the same environment.
+    - openai-harmony <=0.0.0a0
 
 test:
   source_files:
@@ -52,7 +54,7 @@ test:
 
 
 about:
-  home: https://pypi.org/project/openai-harmony/
+  home: https://pypi.org/project/oss-harmony/
   summary: OpenAI's response format for its open-weight model series gpt-oss
   description: |
     The gpt-oss models were trained on the harmony response format for
@@ -70,9 +72,13 @@ about:
   license_file:
     - LICENSE
     - THIRDPARTY.yml
+    # zstd-sys compiles in pre-generated bindings (src/bindings_zstd*.rs) that are BSD-3-Clause.
+    # cargo-bundle-licenses only records the crate's declared MIT/Apache-2.0, so ship the notice
+    # (crate-root LICENSE.BSD-3-Clause of zstd-sys 2.0.16+zstd.1.5.7) explicitly.
+    - licenses/LICENSE-zstd-sys-bindings.BSD-3-Clause
   license_family: Apache
-  doc_url: https://github.com/openai/harmony/tree/main/docs
-  dev_url: https://github.com/openai/harmony
+  doc_url: https://github.com/oss-harmony/harmony/tree/main/docs
+  dev_url: https://github.com/oss-harmony/harmony
 
 extra:
   recipe-maintainers:
